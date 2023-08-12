@@ -11,7 +11,7 @@ import org.junit.Assert;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestCat {
+public class CatTest {
 
     @Mock
     Cat cat;

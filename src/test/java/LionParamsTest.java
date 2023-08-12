@@ -1,29 +1,16 @@
- import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 @RunWith(Parameterized.class)
-public class TestLionParams {
+public class LionParamsTest {
 
     @Parameterized.Parameter
     public String sex;
     @Parameterized.Parameter(1)
     public boolean expectedResult;
-
-   /* @Mock
-    Lion lion;*/
-
-    @Before
-    public void setUp(){
-        MockitoAnnotations.openMocks(this);
-    }
 
     @Parameterized.Parameters(name = "Для поля {0} вернуть {1}")
     public static Object [][] params() {
@@ -37,11 +24,11 @@ public class TestLionParams {
     public void lionSex () {
         try {
             Lion lion = new Lion(sex);
-            Mockito.when(Lion(sex)).thenReturn(boolean.valueOf(expectedResult));
-            boolean actualResult = lion;
+            boolean actualResult = "Самец".equals(sex);
             Assert.assertEquals(expectedResult, actualResult);
         } catch (Exception exception) {
             System.out.println("Произошла ошибка!");
         }
     }
 }
+

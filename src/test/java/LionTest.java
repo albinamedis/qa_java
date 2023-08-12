@@ -6,10 +6,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestLion {
+public class LionTest {
 
     @Mock
     private Lion lion;
@@ -49,11 +51,21 @@ public class TestLion {
     }
 
     @Test
-    public void sexLion () {
+    public void getFood () {
         try {
-            Lion lion = new Lion("Самец");
+            Feline feline = new Feline();
+            Lion lion = new Lion (feline);
+            List<String> actualResult = lion.getFood();;
+            List<String> listFood = List.of("Животные", "Птицы", "Рыба");
+            assertEquals(listFood, actualResult);
         } catch (Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самей или самка");
+            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
         }
     }
+
+    @Test(expected = Exception.class)
+    public void testException() throws Exception {
+        Lion lion = new Lion("Неизвестно");
+    }
+
 }
