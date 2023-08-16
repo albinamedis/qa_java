@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static org.junit.Assert.fail;
+
 @RunWith(Parameterized.class)
 public class LionParamsTest {
 
@@ -27,7 +29,7 @@ public class LionParamsTest {
             boolean actualResult = "Самец".equals(sex);
             Assert.assertEquals(expectedResult, actualResult);
         } catch (Exception exception) {
-            System.out.println("Произошла ошибка!");
+            fail("Произошла ошибка!");
         }
     }
 }

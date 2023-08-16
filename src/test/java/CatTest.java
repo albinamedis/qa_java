@@ -10,6 +10,8 @@ import org.junit.Assert;
 
 import java.util.List;
 
+import static org.junit.Assert.fail;
+
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
@@ -40,8 +42,8 @@ public class CatTest {
             List<String> actualResult = cat.getFood();
             List<String> expectedResult = List.of("Животные", "Птицы", "Рыба");
             Assert.assertEquals(expectedResult, actualResult);
-        } catch (Exception exception) {
-            System.out.println("Произошла ошибка!");
+        } catch (Exception e) {
+            fail("Исключение не должно быть выброшено: " + e.getMessage());
         }
     }
 
@@ -51,8 +53,8 @@ public class CatTest {
             Feline feline = new Feline ();
             Cat cat = new Cat(feline);
             System.out.println(cat.getFood());
-        } catch (Exception exception) {
-            System.out.println("Произошла ошибка!");
+        } catch (Exception e) {
+            fail("Исключение не должно быть выброшено: " + e.getMessage());
         }
     }
 

@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
@@ -54,13 +55,7 @@ public class FelineTest {
             List<String> exceptedResult = List.of("Животные", "Птицы", "Рыба");
             assertEquals(exceptedResult, actualResult);
         } catch (Exception exception) {
-            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
+           fail("Неизвестный вид животного, используйте значение Травоядное или Хищник");
         }
     }
-
-/*    @Test(expected = Exception.class)
-    public void getFood () {
-        Animal animal = new Animal();
-        animal.getFood("ррр");
-    }*/
 }

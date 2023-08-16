@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyString;
 
 @RunWith(Parameterized.class)
@@ -48,7 +49,7 @@ public class FelineParamsTest {
             List<String> listFood = animal.getFood(animalKind);
             assertEquals(listFood, actualResult);
             } catch (Exception exception) {
-                System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
+                fail("Неизвестный вид животного, используйте значение Травоядное или Хищник");
             }
     }
 
